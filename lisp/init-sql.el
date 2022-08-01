@@ -40,14 +40,17 @@
 
 ;; set to connectio 
 (defvar my-sql-servers-list
-  '(("local" my/sql-test-pg)
-    ("Server 2" my-sql-server2))
+  '(("local" 'my/sql-test-pg)
+    ("Server 2" 'my-sql-server2))
   "Alist of server name and the function to connect")
 
 (defun my-sql-connect-server (func)
   "Connect to the input server using my-sql-servers-list"
   (interactive
-   (completing-read "Select server: " my-sql-servers-list))
+   (cdr(
+        assoc(
+              completing-read "SELECT server" my-sql-servers-list
+                              ) my-sql-servers-list)))
   (funcall func))
 
 (define-key my-leader-map (kbd "cc") 'my-sql-connect-server)

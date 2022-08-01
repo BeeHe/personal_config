@@ -1,1 +1,1 @@
-("~/.emacs.d/" "/opt/homebrew/")
+("~/.emacs.d/")

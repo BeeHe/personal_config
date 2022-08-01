@@ -1,53 +1,18 @@
 
 ;; ----- amx-history -----
 (
- eval-buffer
  eval-region
- sql-send-region
- my/sql-test-pg
- my/sql-cvault-18
- comint-previous-matching-input-from-input
- sqlformat
+ helm-mode
+ lisp-interaction-mode
+ cd
+ ds
+ fm
+ hm
 )
 
 ;; ----- amx-data -----
 (
- (hs-minor-mode . 2)
- (hs-hide-level . 2)
- (hs-hide-all . 2)
- (hs-hide-block . 8)
- (org-mode . 1)
- (evil-emacs-state . 2)
- (replace-regexp . 1)
- (eval-buffer . 12)
- (eval-region . 101)
- (package-install . 20)
- (command-log-mode . 1)
- (package-show-package-list . 1)
- (which-key-mode . 7)
- (browse-url . 1)
- (eww . 1)
- (shell . 2)
- (message-tab . 1)
- (sql-mode . 8)
- (my/sql-cvault-18 . 2)
- (my/sql-test-pg . 20)
- (company-mode . 1)
- (evil-insert-state . 3)
- (evil-normal-state . 4)
- (ivy-mode . 2)
- (package-reinstall . 1)
- (electric-layout-mode . 2)
- (window-configuration-to-register . 1)
- (evil-mode . 5)
- (persp-mode . 14)
- (package-delete . 2)
- (package-list-packages . 2)
- (keyboard-quit . 1)
- (generic-mode . 1)
- (sqlformat . 7)
- (comint-previous-matching-input-from-input . 2)
- (sql-mode-menu . 2)
- (sql-send-buffer . 1)
- (sql-send-region . 3)
+ (eval-region . 23)
+ (lisp-interaction-mode . 1)
+ (helm-mode . 2)
 )
