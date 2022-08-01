@@ -1,0 +1,1 @@
+("~/.emacs.d/" "/opt/homebrew/")

@@ -1,0 +1,38 @@
+(setq sql-postgres-login-params
+      '((user :default "postgres")
+        (database :default "postgres")
+        (server :default "localhost")
+        (port :default 5432)))
+(setq sql-connection-alist
+      '((pgsql-local (sql-product 'postgres)
+                    (sql-port 5432)
+                    (sql-server "localhost")
+                    (sql-user "postgres")
+                    (sql-password "postgres")
+                    (sql-database "postgres"))
+        ;; (pgsql-staging (sql-product 'postgres)
+        ;;                (sql-port 5432)
+        ;;                (sql-server "db.staging.com")
+        ;;                (sql-user "user")
+        ;;                (sql-password "password")
+        ;;                (sql-database "my-app"))
+        (mysql-dev (sql-product 'mysql)
+                   (sql-port 5432)
+                   (sql-server "localhost")
+                   (sql-user "user")
+                   (sql-password "password")
+                   (sql-database "some-app"))
+        (ora-local (sql-product 'oracle)
+                   (sql-user "sys")
+                   (sql-password "oracle")
+                   (sql-database "docker_ora as sysdba"))))
+
+
+(defun sql-connect-to-pqsql-local ()
+  (interactive)
+  (sql-connect 'pqsql-prod "*pg-local*"))
+
+
+(defun sql-connect-to-ora-docker()
+  (interactive)
+  (sql-connect 'oracle-prod "*ora-local*"))
