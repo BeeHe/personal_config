@@ -44,3 +44,18 @@
 (define-key evil-register-map (kbd "j") 'jump-to-register)
 
 
+;; zoom-window mode
+(with-eval-after-load "persp-mode-autoloads"
+  (add-hook 'after-init-hook #'(lambda () (persp-mode 1))))
+
+(use-package zoom-window
+  :config (custom-set-variables '(zoom-window-mode-line-color "black"))
+           ;; (custom-set-variables '(zoom-window-use-persp t))
+           ;; (zoom-window-setup)
+  :bind (:map global-map ("C-x z" . 'zoom-window-zoom))
+)
+;; (require 'zoom-window)
+;; (custom-set-variables
+;;  '(zoom-window-use-persp t))
+;; (zoom-window-setup)
+;; (global-set-key (kbd "C-x z") 'zoom-window-zoom)

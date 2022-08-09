@@ -38,7 +38,7 @@
 (require 'thingatpt)
 
 
-;;; --- customization
+;;; --- customization
 
 (defgroup perspective-mode 'nil
   "Customization for Perspective mode"

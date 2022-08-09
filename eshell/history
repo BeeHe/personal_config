@@ -1,0 +1,8 @@
+ls
+ls -lrth
+echo true;
+for i in {1..3};
+do
+for i in {1..3};do echo $i;done
+for i in {1..3};do echo $i;done
+exit

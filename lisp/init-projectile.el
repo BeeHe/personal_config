@@ -40,7 +40,7 @@
    )
   :init
   (persp-mode)
-  (persp-suppress-no-prefix-key-warning t)
+  (setq persp-suppress-no-prefix-key-warning t)
   :config
   (define-key my-leader-map (kbd "l") 'perspective-map)
-)
+  (global-set-key (kbd "C-x b") 'persp-switch-to-buffer))

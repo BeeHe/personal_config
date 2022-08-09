@@ -42,6 +42,7 @@
   (defalias 'evil-insert-state 'evil-emacs-state)
   ;; (define-key evil-emacs-state-map (kbd "ESC ESC ESC") nil)
   (define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-emacs-state-map (kbd "ESC ESC") 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "C-p") nil)
   (define-key evil-normal-state-map (kbd "C-n") nil)
   (define-key evil-normal-state-map (kbd "TAB") 'indent-for-tab-command)

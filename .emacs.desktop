@@ -1,0 +1,175 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed Aug 10 00:45:01 2022
+;; Desktop file format version 208
+;; Emacs version 28.1
+
+;; Global section:
+(setq desktop-saved-frameset (vector 'frameset 1 '(25330 36621 790063 0) '(desktop . "208") "HeBee@MacBook-Pro.local" nil nil (list (list (list '(minibuffer . t) '(tty-type . "xterm-256color") '(tty . "/dev/tty") '(display-type . color) '(background-mode . dark) '(background-color . "#161A1F") '(foreground-color . "#DEDEDE") '(menu-bar-lines . 0) '(persp--modestring "[" #("main" 0 4 (face persp-selected-face)) "]") '(persp--recursive) '(persp--last) (desktop-list* 'persp--curr (record 'perspective "main" '("Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity" "Unprintable entity") nil nil '(25330 34940 82854 0) '(25330 34940 82854 0) "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (lambda nil (set-marker mk 1 (get-buffer "*scratch*")))) mk))) '(persp--hash . "Unprintable entity") '(font . "tty") '(height . 49) '(width . 187) '(modeline . t) '(unsplittable) '(tab-bar-lines . 0) '(tool-bar-lines . 0) '(zoom-window-buffers "Unprintable entity" "Unprintable entity") '(zoom-window-enabled) '(tabs (current-tab (name . "lsp-mode.el") (explicit-name))) '(frameset--id . "E7D1-766B-3F81-0F46") '(frameset--mini t)) '((min-height . 4) (min-width . 20) (min-height-ignore . 2) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 4) (min-pixel-width . 20) (min-pixel-height-ignore . 2) (min-pixel-width-ignore . 4) (min-pixel-height-safe . 1) (min-pixel-width-safe . 4)) 'hc '(pixel-width . 187) '(pixel-height . 48) '(total-width . 187) '(total-height . 48) '(normal-height . 1.0) '(normal-width . 1.0) '(combination-limit) '(leaf (pixel-width . 94) (pixel-height . 48) (total-width . 94) (total-height . 48) (normal-height . 1.0) (normal-width . 0.5) (buffer "lsp-mode.el" (selected) (hscroll . 0) (fringes 0 0 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 69854) (start . 69019)) (prev-buffers ("*Messages*" 8348 8853) ("*scratch*" 1 145) ("*Warnings*" 1 388))) '(leaf (last . t) (pixel-width . 93) (pixel-height . 48) (total-width . 93) (total-height . 48) (normal-height . 1.0) (normal-width . 0.5) (buffer "*lsp-performance*" (selected . t) (hscroll . 0) (fringes 0 0 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 443) (start . 1)) (prev-buffers ("*Help*" 1 1) ("*Messages*" 6367 6367)))))))
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '(#("selec" 0 5 (isearch-regexp-function nil isearch-case-fold-search t)) #("test" 0 4 (isearch-regexp-function nil isearch-case-fold-search t))))
+(setq regexp-search-ring '("lsp-s" "lsp--path-to-uri" "-compose" "lsp-install-server" "lsp--path-to-uri" "lsp-mode" "package-arch" "package" "lsp-mode" "ivy-mode" "theme" "sublime" "company-" "lsp-ivy" "lsp-py" "read-input"))
+(setq register-alist '((113 . "fuse-packageo/:mode$bhho") (48 . "lsp--path-to-uri: Symbol’s function definition is void: -compose")))
+(setq file-name-history '(#("/Users/HeBee/PersonalData/.emacs.d/init.el" 0 42 (ivy-index 1)) #("/Users/HeBee/PersonalData/.emacs.d/lisp/init.el" 0 47 (ivy-index 0)) #("/Users/HeBee/.psqlrc" 0 20 (ivy-index 1)) #("/Users/HeBee/PersonalData/.emacs.d/lisp/company-sql-tool/sql-def.el" 0 67 (ivy-index 0)) #("/Users/HeBee/PersonalData/.emacs.d/lisp/init-evil.el" 0 52 (ivy-index 4)) #("/Users/HeBee/PersonalData/.emacs.d/lisp/init-common.el" 0 54 (ivy-index 0)) #("/Users/HeBee/PersonalData/.emacs.d/lisp/init-comman.el" 0 54 (ivy-index 0)) #("/Users/HeBee/PersonalData/.emacs.d/lisp/init-shell.el" 0 53 (ivy-index 0)) #("/Users/HeBee/PersonalData/.emacs.d/init_bash.sh" 0 47 (ivy-index 0)) #("/Users/HeBee/PersonalData/.emacs.d/.emacs.d/init_bash.sh" 0 56 (ivy-index 0)) "~/.emacs.d/lisp/init-projectile.el" "~/.emacs.d/lisp/init-windows.el" #("/Users/HeBee/Work/work_git/clup-agent/src/lib/clup_agent.py" 0 59 (ivy-index 4)) #("/Users/HeBee/PersonalData/.emacs.d/lisp/init-projectile.el" 0 58 (ivy-index 0)) #("/Users/HeBee/PersonalData/.emacs.d/lisp/init-windows.el" 0 55 (ivy-index 0))))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/elpa/lsp-mode-20220808.1239/lsp-mode.el"
+  "lsp-mode.el"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  69854
+  '(69854 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 36556 452771 0) (buffer-file-coding-system . utf-8-unix) (overwrite-mode))
+  '((mark-ring (69861 69624 69161 400194 365943))))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  96
+  '(96 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34981 253582 0) (buffer-file-coding-system . utf-8-unix) (overwrite-mode))
+  '((mark-ring (96 28 96 1 16390))))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/init-sql-company-backend.el"
+  "init-sql-company-backend.el"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  1617
+  '(1707 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34914 364207 236000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring (99 1360 2013 1 99))))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/lisp/init-shell.el"
+  "init-shell.el"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  19
+  '(19 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34914 424442 236000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/lisp/init-projectile.el"
+  "init-projectile.el"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  1813
+  '(1813 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34914 473519 236000) (buffer-file-coding-system . utf-8-unix) (overwrite-mode))
+  '((mark-ring (1813 1813 1861 99 99))))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/lisp/init-evil.el"
+  "init-evil.el"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  1187
+  '(1486 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34914 522386 236000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring (1486 1486 1486 1408 1438))))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/lisp/init-dbconn.el"
+  "init-dbconn.el"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  2420
+  '(2420 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34914 572544 236000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring (2420 2420 2420 2420 2420))))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/lisp/company-sql-tool/sql-def.el"
+  "sql-def.el"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  6
+  '(2 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34914 602201 236000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring (3317 56 56 3653 1))))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/elpa/use-package-20200721.2156/dir"
+  "dir"
+  'fundamental-mode
+  '(global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  5
+  '(5 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34914 657517 236000) (buffer-file-coding-system . undecided-unix) (overwrite-mode))
+  '((mark-ring (2 1))))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/lisp/init-sql.el"
+  "init-sql.el"
+  'lisp-interaction-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  1909
+  '(1909 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34914 737135 236000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring (1909 2041 2041 2108 1322))))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/lisp/init-common.el"
+  "init-common.el"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  665
+  '(747 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34914 767280 236000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring (457 457 398 577 510))))
+
+(desktop-create-buffer 208
+  "/Users/HeBee/PersonalData/.emacs.d/lisp/init-windows.el"
+  "init-windows.el"
+  'emacs-lisp-mode
+  '(eldoc-mode global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  2055
+  '(1997 nil)
+  nil
+  nil
+  '((buffer-display-time 25330 34914 816535 236000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring (1961 1961 2239 2237 2239))))
+
+(desktop-create-buffer 208
+  nil
+  "*info*"
+  'Info-mode
+  '(global-auto-revert-mode which-key-mode override-global-mode projectile-mode ivy-mode)
+  1656769
+  '(1656769 nil)
+  t
+  '("/opt/homebrew/Cellar/emacs/28.1/share/info/emacs/emacs" "Changing a Variable" ((history ("/opt/homebrew/Cellar/emacs/28.1/share/info/emacs/emacs" "Easy Customization" 1649775))))
+  '((tab-width . 8) (buffer-display-time 25330 13096 811786 927000) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t))
+  '((mark-ring (1650198 1650198 1650198 1649000))))
+

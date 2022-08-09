@@ -1,6 +1,6 @@
 ;; backup and file related
-(setq user-emacs-direcotry "/Users/HeBee/PersonalData/.emacs.d")
-(setq package-user-dir "/Users/HeBee/PersonalData/.emacs.d/elpa")
+;; (setq user-emacs-direcotry "/Users/HeBee/PersonalData/.emacs.d")
+;; (setq package-user-dir "/Users/HeBee/PersonalData/.emacs.d/elpa")
 (setq inhibit-startup-screen t)
 
 
@@ -295,9 +295,12 @@ Version 2019-02-22"
 ;;   '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
 ;;   '("melpa" . "https://melpa.org/packages/")
 ;;  t))
-(setq package-archives 
- '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/") 
-   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+(setq package-archives '(("gnu" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
+                         ("melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")))
+
+;; (setq package-archives 
+;;  '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/") 
+;;    ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
       ;; '(("melpa" . "https://gitlab.com/d12frosted/elpa-mirror/raw/master/melpa/")
       ;;   ("org"   . "https://gitlab.com/d12frosted/elpa-mirror/raw/master/org/")
       ;;   ("gnu"   . "https://gitlab.com/d12frosted/elpa-mirror/raw/master/gnu/")))
@@ -390,9 +393,12 @@ Version 2017-11-10"
     (add-hook 'eww-after-render-hook 'xah-rename-eww-buffer))
 
 ;; load theme
-(load-theme 'wombat)
+(load-theme 'spolsky)
 
 (setq inhibit-startup-screen t)
+;; don't show menual-bar
+(menu-bar-mode -1)
+(which-key-mode t)
 
 (if (display-graphic-p)
     (setq initial-frame-alist
@@ -423,24 +429,31 @@ Version 2019-11-05"
 ;; ---------- mine ----------
 ;; fix projectile string-trim
 (require 'subr-x)
+
 ;; (require-package 'company-mode)
 (eval-when-compile
  ;; Following line is not needed if use-package.el is in ~/.emacs.d
  (add-to-list 'load-path "/Users/HeBee/PersonalData/.emacs.d/elpa/use-package-20200721.2156")
  (require 'use-package))
 
-
 ;; load others files
-(load (xah-get-fullpath "lisp/init-evil"))
-(load (xah-get-fullpath "lisp/init-company"))
+(load (xah-get-fullpath "lisp/init-evil.el"))
+(load (xah-get-fullpath "lisp/company-sql-tool/company-sql.el"))
+(load (xah-get-fullpath "lisp/company-sql-tool/sql-def.el"))
+(load (xah-get-fullpath "lisp/init-common.el"))
+(load (xah-get-fullpath "lisp/init-company.el"))
 (load (xah-get-fullpath "lisp/init-python.el"))
 (load (xah-get-fullpath "lisp/init-sql.el"))
+(load (xah-get-fullpath "lisp/init-dbconn.el"))
 (load (xah-get-fullpath "lisp/init-projectile.el"))
 (load (xah-get-fullpath "lisp/init-windows.el"))
 (load (xah-get-fullpath "lisp/init-ivy.el"))
 
 ;; auto load function
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(require 'company) 
+(require 'company-sql)
+(autoload 'sql-def-buffer-create-for-name-at-point "sql-def")
 
 (message (file-name-directory (or load-file-name buffer-file-name)))
 (custom-set-variables
@@ -448,12 +461,14 @@ Version 2019-11-05"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" default))
  '(minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
  '(package-selected-packages
-   '(perspective yasnippet-classic-snippets evil-terminal-cursor-changer which-key command-log-mode use-package toml-mode sqlformat projectile markdown-mode ivy-rich ivy-hydra helm evil counsel company-quickhelp company-anaconda color-theme amx)))
+   '(sublime-themes lsp-ivy lsp-mode zoom-window perspective yasnippet-classic-snippets evil-terminal-cursor-changer which-key command-log-mode use-package toml-mode sqlformat projectile markdown-mode ivy-rich ivy-hydra helm evil counsel company-quickhelp company-anaconda color-theme amx))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:background nil)))))
