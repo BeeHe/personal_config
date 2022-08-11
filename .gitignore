@@ -1,0 +1,10 @@
+.emacs.desktop
+.emacs.desktop.lock
+amx-items
+anaconda-mode/
+auto-save-list/
+elpa/
+history
+places
+projectile-bookmarks.eld
+recentf
