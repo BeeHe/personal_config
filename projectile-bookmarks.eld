@@ -1,1 +1,0 @@
-("~/.emacs.d/" "/Users/HeBee/Work/work_git/clup-agent/")

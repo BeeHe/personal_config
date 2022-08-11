@@ -1,7 +1,7 @@
 (require 'company)
 (require 'company-sql)
 
-(defun my-sql-interactive-mode-cmd-hook ()
+(defun my-interactive-mode-cmd-hook ()
     (define-key evil-emacs-state-local-map (kbd "C-p") 
       'comint-previous-matching-input-from-input)
     (define-key evil-emacs-state-local-map (kbd "C-n") 

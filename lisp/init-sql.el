@@ -28,17 +28,18 @@
 ;; (declare-function my-sql-interactive-mode-cmd-hook "init-common")
 ;; (declare-function toggle-truncate-lines "init-common")
 (use-package sql
-  :mode ("\\.sql\\'" . sql-mode)
+  :mode (".*\\.sql$" . sql-mode)
   :bind (
          :map my-leader-map
               ("cb" . 'sql-set-sqli-buffer))
   ;; :config
   :hook
+  (sql-mode . lsp)
   (sql-interactive-mode . my-sql-save-history-hook)
   ;; SQL select result autoformat
   (sql-interactive-mode . (lambda () (toggle-truncate-lines t)))
   ;; (sql-interactive-mode . (lambda () (add-to-list 'company-backends 'company-sql)))
-  (sql-interactive-mode . my-sql-interactive-mode-cmd-hook)
+  (sql-interactive-mode . my-interactive-mode-cmd-hook)
 )
 
 ;; (use-package sql-interactive-mode

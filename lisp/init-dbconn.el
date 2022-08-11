@@ -89,3 +89,8 @@
   (funcall func))
 
 (define-key my-leader-map (kbd "cc") 'my-sql-connect-server)
+
+
+;; (setq lsp-sqls-workspace-config-path nil)
+(setq lsp-sqls-connections
+    '(((driver . "postgresql") (dataSourceName . "host=127.0.0.1 port=5432 user=hebee dbname=postgres sslmode=disable"))))

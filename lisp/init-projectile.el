@@ -37,6 +37,7 @@
    ("N" . persp-prev)
    ;; ("L" . persp-switch-by-number)
    ("l" . persp-list-buffers)   ; or use a nicer switcher, see below
+   ("d" . 'persp-kill-buffer*)   ; or use a nicer switcher, see below
    )
   :init
   (persp-mode)

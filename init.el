@@ -393,7 +393,7 @@ Version 2017-11-10"
     (add-hook 'eww-after-render-hook 'xah-rename-eww-buffer))
 
 ;; load theme
-(load-theme 'spolsky)
+(load-theme 'spolsky t)
 
 (setq inhibit-startup-screen t)
 ;; don't show menual-bar
@@ -453,6 +453,7 @@ Version 2019-11-05"
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (require 'company) 
 (require 'company-sql)
+(add-hook 'after-init-hook 'global-company-mode)
 (autoload 'sql-def-buffer-create-for-name-at-point "sql-def")
 
 (message (file-name-directory (or load-file-name buffer-file-name)))
