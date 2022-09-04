@@ -1,6 +1,8 @@
 (use-package python
     :mode ("\\.py\\'" . python-mode)
     :interpreter ("/Users/HeBee/.pyenv/shims/ipython" . python-mode)
+    :config
+    (setq python-shell-interpreter "/Users/HeBee/.pyenv/shims/ipython")
     ;; :init 
     ;; (setq 
     ;;  python-shell-interpreter-args "--simple-prompt -i"
@@ -51,6 +53,7 @@
     ;;   )                
     :hook
     (python-mode . lsp)
+    (python-mode . hs-minor-mode)
     (inferior-python-mode . lsp)
     (inferior-python-mode . my-interactive-mode-cmd-hook))
 

@@ -36,6 +36,7 @@
   :hook
   (sql-mode . lsp)
   (sql-interactive-mode . my-sql-save-history-hook)
+  (sql-mode . hs-minor-mode)
   ;; SQL select result autoformat
   (sql-interactive-mode . (lambda () (toggle-truncate-lines t)))
   ;; (sql-interactive-mode . (lambda () (add-to-list 'company-backends 'company-sql)))

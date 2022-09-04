@@ -7,8 +7,10 @@
 (use-package evil :ensure t 
   :init 
   (setq evil-want-C-u-scroll t
+        evil-want-C-d-scroll t
         evil-want-C-w-delete t
         )
+  ;; (define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down) 
   
   (unless (display-graphic-p)
     (require 'evil-terminal-cursor-changer)
@@ -43,6 +45,7 @@
   ;; (define-key evil-emacs-state-map (kbd "ESC ESC ESC") nil)
   (define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
   (define-key evil-emacs-state-map (kbd "ESC ESC") 'evil-normal-state)
+  (define-key evil-emacs-state-map (kbd "C-x [") 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "C-p") nil)
   (define-key evil-normal-state-map (kbd "C-n") nil)
   (define-key evil-normal-state-map (kbd "TAB") 'indent-for-tab-command)
@@ -52,6 +55,7 @@
   (define-key evil-normal-state-map (kbd "SPC") my-leader-map)
   (define-key evil-motion-state-map (kbd "SPC") my-leader-map)
   )
+
 
 ;; (define-prefix-command 'evil-window-map)
 ;; (define-key my-leader-map (kbd "w" ) 'evil-window-map)
@@ -63,6 +67,15 @@
 (define-key my-leader-map (kbd "bp") 'previous-buffer)
 (define-key my-leader-map (kbd "bn") 'next-buffer)
 (define-key my-leader-map (kbd "bb") 'swith-to-buffer)
+
+;; hs-minor-mode keybind
+
+;; (hs-minor-mode)
+;; (define-key my-leader-map (kbd "fd") hs-minor-mode-map)
+;; (define-key my-leader-map (kbd "fdha") 'hs-hide-all)
+;; (define-key my-leader-map (kbd "fdsa") 'hs-show-all)
+;; (define-key my-leader-map (kbd "fdsb") 'hs-show-block)
+;; (define-key my-leader-map (kbd "fdhb") 'hs-hide-block)
 
 (evil-mode 1)
 
