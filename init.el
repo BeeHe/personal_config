@@ -393,12 +393,15 @@ Version 2017-11-10"
     (add-hook 'eww-after-render-hook 'xah-rename-eww-buffer))
 
 ;; load theme
-(load-theme 'spolsky t)
+;; (load-theme 'spolsky t)
 
 (setq inhibit-startup-screen t)
 ;; don't show menual-bar
 (menu-bar-mode -1)
-(which-key-mode t)
+(use-package which-key
+             :config
+             (which-key-mode t)
+)
 
 (if (display-graphic-p)
     (setq initial-frame-alist
