@@ -12,6 +12,11 @@
     ;;   'sql-def-buffer-create-for-name-at-point)
 )
 
+(defun my-eww-keybind-hook()
+  (define-key evil-normal-state-local-map (kbd "M-h") 'eww-back-url)
+  (define-key evil-normal-state-local-map (kbd "M-l") 'eww-forward-url)
+  )
+
 
 (defun get-frame-persp (&optional frame)
   (persp-current-name))

@@ -30,6 +30,7 @@
 
 ;; perspective settings
 (use-package perspective
+  :ensure t
   :bind
   (
    ("C-x C-b" . persp-list-buffers)   ; or use a nicer switcher, see below
@@ -44,4 +45,20 @@
   (setq persp-suppress-no-prefix-key-warning t)
   :config
   (define-key my-leader-map (kbd "l") 'perspective-map)
-  (global-set-key (kbd "C-x b") 'persp-switch-to-buffer))
+  (global-set-key (kbd "C-x b") 'persp-switch-to-buffer)
+  (setq-default persp-state-default-file (xah-get-fullpath "../persp-desktop"))
+)
+
+(defun my-persp-auto-save ()
+  "my function use to save persp-state into persp-state-default-file"
+  (persp-state-save persp-state-default-file))
+
+(defun my-persp-auto-load ()
+  "my function use to load persp-state from persp-state-default-file"
+  (if (f-file-p persp-state-default-file) (persp-state-load persp-state-default-file)))
+(add-hook 'kill-emacs-hook 'my-persp-auto-save)
+(add-hook 'after-init-hook 'my-persp-auto-load)
+;; (remove-hook 'kill-buffer-hook 'my-persp-auto-save)
+
+;; (fset 'f2 (lambda () (persp-state-save persp-state-default-file)))
+;; (f2)

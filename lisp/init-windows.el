@@ -45,10 +45,11 @@
 
 
 ;; zoom-window mode
-(with-eval-after-load "persp-mode-autoloads"
-  (add-hook 'after-init-hook #'(lambda () (persp-mode 1))))
+;; (with-eval-after-load "persp-mode-autoloads"
+;;   (add-hook 'after-init-hook #'(lambda () (persp-mode 1))))
 
 (use-package zoom-window
+  :ensure t
   :config (custom-set-variables '(zoom-window-mode-line-color "black"))
            ;; (custom-set-variables '(zoom-window-use-persp t))
            ;; (zoom-window-setup)
@@ -59,3 +60,12 @@
 ;;  '(zoom-window-use-persp t))
 ;; (zoom-window-setup)
 ;; (global-set-key (kbd "C-x z") 'zoom-window-zoom)
+
+(use-package diminish
+  :ensure t
+  ) 
+(diminish 'ivy-mode)
+(diminish 'projectile-mode)
+(diminish 'company-mode)
+(diminish 'ELDoc)
+

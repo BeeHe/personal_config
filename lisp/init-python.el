@@ -1,4 +1,5 @@
 (use-package python
+  :ensure t
     :mode ("\\.py\\'" . python-mode)
     :interpreter ("/Users/HeBee/.pyenv/shims/ipython" . python-mode)
     :config

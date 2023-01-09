@@ -12,6 +12,7 @@
          ("C-x C-f" . counsel-find-file)))
 
 (use-package amx :defer 0.5
+  :ensure t
   :config (amx-mode))
 
 ;; swiper: isearch with an overview!
@@ -20,6 +21,7 @@
 ;; `M-n' -> next search item
 ;; `M-n' -> to select the symbol at point in swiper
 (use-package swiper
+  :ensure t
   :bind (("C-s" . swiper-isearch)
          ("M-s ." . swiper-isearch-thing-at-point))
   :config
@@ -30,6 +32,7 @@
 ;; ivy: incremental narrowing framework for Emacs
 ;; https://github.com/abo-abo/swiper
 (use-package ivy
+  :ensure t
   :bind (("C-c u" . ivy-resume))
   :config
   (ivy-mode)
@@ -66,6 +69,7 @@
 ;; Better experience with icons for ivy
 ;; https://github.com/seagle0128/all-the-icons-ivy-rich/
 (use-package all-the-icons-ivy-rich :defer 1
+  :ensure t
   :config
   (all-the-icons-ivy-rich-mode 1)
   (setq all-the-icons-ivy-rich-icon-size 0.8))
@@ -73,6 +77,7 @@
 ;; More friendly interface for ivy
 ;; https://github.com/Yevgnen/ivy-rich
 (use-package ivy-rich
+  :ensure t
   :hook (counsel-mode . ivy-rich-mode)
   :config
   ;; For better performance
@@ -80,7 +85,8 @@
   (setq ivy-rich-parse-remote-buffer nil))
 
 ;; hydra for ivy, its a part of the same repo as swiper
-(use-package ivy-hydra)
+(use-package ivy-hydra
+  :ensure t)
 
 (provide 'setup-ivy)
 

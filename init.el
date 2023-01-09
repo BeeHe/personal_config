@@ -30,7 +30,7 @@ This function solves 2 problems.
   If the file is called by `eval-buffer', then `load-file-name' is nil. 
   You want to be able to get the current file's full path regardless the file is run by `load' 
   or interactively by `eval-buffer'."
-  (concat (file-name-directory (or load-file-name buffer-file-name)) 
+  (concat (file-name-directory (or load-file-name buffer-file-name "$HOME/.emacs.d/init.el")) 
           @file-relative-path)
 )
 
@@ -82,7 +82,7 @@ Version 2019-11-05"
 (require 'recentf)
 (recentf-mode 1)
 
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 (global-auto-revert-mode 1)
 
 ;; HHH___________________________________________________________________
@@ -393,14 +393,17 @@ Version 2017-11-10"
     (add-hook 'eww-after-render-hook 'xah-rename-eww-buffer))
 
 ;; load theme
-;; (load-theme 'spolsky t)
+(use-package melancholy-theme
+  :ensure t)
+(load-theme 'melancholy t)
 
 (setq inhibit-startup-screen t)
 ;; don't show menual-bar
 (menu-bar-mode -1)
 (use-package which-key
-             :config
-             (which-key-mode t)
+  :ensure t
+  :config
+  (which-key-mode t)
 )
 
 (if (display-graphic-p)
@@ -433,30 +436,34 @@ Version 2019-11-05"
 ;; fix projectile string-trim
 (require 'subr-x)
 
-;; (require-package 'company-mode)
 (eval-when-compile
  ;; Following line is not needed if use-package.el is in ~/.emacs.d
- (add-to-list 'load-path "/Users/HeBee/PersonalData/.emacs.d/elpa/use-package-20200721.2156")
+ ;; (add-to-list 'load-path "/Users/HeBee/PersonalData/.emacs.d/elpa/use-package-20200721.2156")
  (require 'use-package))
 
 ;; load others files
 (load (xah-get-fullpath "lisp/init-evil.el"))
+(load (xah-get-fullpath "lisp/init-company.el"))
 (load (xah-get-fullpath "lisp/company-sql-tool/company-sql.el"))
 (load (xah-get-fullpath "lisp/company-sql-tool/sql-def.el"))
 (load (xah-get-fullpath "lisp/init-common.el"))
-(load (xah-get-fullpath "lisp/init-company.el"))
 (load (xah-get-fullpath "lisp/init-python.el"))
+(load (xah-get-fullpath "lisp/init-lsp.el"))
 (load (xah-get-fullpath "lisp/init-sql.el"))
 (load (xah-get-fullpath "lisp/init-dbconn.el"))
 (load (xah-get-fullpath "lisp/init-projectile.el"))
 (load (xah-get-fullpath "lisp/init-windows.el"))
 (load (xah-get-fullpath "lisp/init-ivy.el"))
+(load (xah-get-fullpath "lisp/init-magit.el"))
+(load (xah-get-fullpath "lisp/init-eww.el"))
 
 ;; auto load function
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (require 'company) 
 (require 'company-sql)
 (add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'emacs-startup-hook 'persp-state-load)
+
 (autoload 'sql-def-buffer-create-for-name-at-point "sql-def")
 
 (message (file-name-directory (or load-file-name buffer-file-name)))
@@ -466,13 +473,17 @@ Version 2019-11-05"
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" default))
+   '("2f08b4f5ff619bdfa46037553ea41f72f09013a2e6b7287799db6cec6a7dddb2" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" default))
+ '(eww-search-prefix "https://bing.com/search?q=")
  '(minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
  '(package-selected-packages
-   '(sublime-themes lsp-ivy lsp-mode zoom-window perspective yasnippet-classic-snippets evil-terminal-cursor-changer which-key command-log-mode use-package toml-mode sqlformat projectile markdown-mode ivy-rich ivy-hydra helm evil counsel company-quickhelp company-anaconda color-theme amx))
+   '(diminish lsp-ui melancholy-theme sublime-themes lsp-ivy lsp-mode zoom-window perspective yasnippet-classic-snippets evil-terminal-cursor-changer which-key command-log-mode use-package toml-mode sqlformat projectile markdown-mode ivy-rich evil counsel company-quickhelp company-anaconda color-theme amx))
+ '(zoom-window-mode-line-color "black"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil)))))
+
+   ;; '(sublime-themes lsp-ivy lsp-mode zoom-window perspective yasnippet-classic-snippets evil-terminal-cursor-changer which-key command-log-mode use-package toml-mode sqlformat projectile markdown-mode ivy-rich ivy-hydra evil counsel company-quickhelp company-anaconda color-theme amx))
