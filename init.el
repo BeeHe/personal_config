@@ -17,20 +17,20 @@ Regardless how or where emacs_lib.el is called.
 
 This function solves 2 problems.
 
-① If you have file A, that calls the `load' on a file at B, and B calls `load' on file C 
-  using a relative path, then Emacs will complain about unable to find C. 
+① If you have file A, that calls the `load' on a file at B, and B calls `load' on file C
+  using a relative path, then Emacs will complain about unable to find C.
   Because, emacs does not switch current directory with `load'.
 
-  To solve this problem, when your code only knows the relative path of another file C, 
-  you can use the variable `load-file-name' to get the current file's full path, 
+  To solve this problem, when your code only knows the relative path of another file C,
+  you can use the variable `load-file-name' to get the current file's full path,
   then use that with the relative path to get a full path of the file you are interested.
 
-② To know the current file's full path, emacs has 2 ways: `load-file-name' and `buffer-file-name'. 
-  If the file is loaded by `load', then `load-file-name' works but `buffer-file-name' doesn't. 
-  If the file is called by `eval-buffer', then `load-file-name' is nil. 
-  You want to be able to get the current file's full path regardless the file is run by `load' 
+② To know the current file's full path, emacs has 2 ways: `load-file-name' and `buffer-file-name'.
+  If the file is loaded by `load', then `load-file-name' works but `buffer-file-name' doesn't.
+  If the file is called by `eval-buffer', then `load-file-name' is nil.
+  You want to be able to get the current file's full path regardless the file is run by `load'
   or interactively by `eval-buffer'."
-  (concat (file-name-directory (or load-file-name buffer-file-name "$HOME/.emacs.d/init.el")) 
+  (concat (file-name-directory (or load-file-name buffer-file-name "$HOME/.emacs.d/init.el"))
           @file-relative-path)
 )
 
@@ -89,7 +89,10 @@ Version 2019-11-05"
 ;; user interface
 
 ;; (when (version<= "26.0.50" emacs-version )
-(setq-default display-line-numbers-type 'relative)
+
+(setq-default display-line-numbers-type 'relative
+      display-line-numbers-width-start 4)
+
 (global-display-line-numbers-mode t)
 ;;   (global-display-line-numbers-mode))
 
@@ -97,29 +100,34 @@ Version 2019-11-05"
 (blink-cursor-mode 0)
 (setq use-dialog-box nil)
 
-(progn
-  ;; no need to warn
-  (put 'narrow-to-region 'disabled nil)
-  (put 'narrow-to-page 'disabled nil)
-  (put 'upcase-region 'disabled nil)
-  (put 'downcase-region 'disabled nil)
-  (put 'erase-buffer 'disabled nil)
-  (put 'scroll-left 'disabled nil)
-  (put 'dired-find-alternate-file 'disabled nil)
-  )
+(if (display-graphic-p)
+    (progn
+      (scroll-bar-mode -1)
+      (toggle-frame-fullscreen)))
+
+;; (progn
+;;   ;; no need to warn
+;;   (put 'narrow-to-region 'disabled nil)
+;;   (put 'narrow-to-page 'disabled nil)
+;;   (put 'upcase-region 'disabled nil)
+;;   (put 'downcase-region 'disabled nil)
+;;   (put 'erase-buffer 'disabled nil)
+;;   (put 'scroll-left 'disabled nil)
+;;   (put 'dired-find-alternate-file 'disabled nil)
+;;   )
 
 ;; HHH___________________________________________________________________
 
 (progn
   (require 'dired-x)
   (setq dired-dwim-target t)
-  (when (string-equal system-type "gnu/linux") 
+  (when (string-equal system-type "gnu/linux")
     (setq dired-listing-switches "-al --time-style long-iso"))
   (setq dired-recursive-copies 'always)
   (setq dired-recursive-deletes 'always))
 
 ;; HHH___________________________________________________________________
-;; 
+;;
 (setq set-mark-command-repeat-pop t)
 (setq mark-ring-max 5)
 (setq global-mark-ring-max 5)
@@ -128,16 +136,6 @@ Version 2019-11-05"
 ;; Emacs: Font Setup http://ergoemacs.org/emacs/emacs_list_and_set_font.html
 
 ;; set default font
-(set-frame-font
- (cond
-  ((string-equal system-type "windows-nt")
-   (if (member "Consolas" (font-family-list)) "Consolas" nil ))
-  ((string-equal system-type "darwin")
-   (if (member "Menlo" (font-family-list)) "Consolas-16" nil ))
-  ((string-equal system-type "gnu/linux")
-   (if (member "DejaVu Sans Mono" (font-family-list)) "DejaVu Sans Mono" nil ))
-  (t nil))
- t t)
 
 ;; ;; set font for emoji
 ;; (set-fontset-font
@@ -152,7 +150,6 @@ Version 2019-11-05"
 ;;  ;; Apple Color Emoji should be before Symbola, but Richard Stallman skum disabled it.
 ;;  ;; GNU Emacs Removes Color Emoji Support on the Mac
 ;;  ;; http://ergoemacs.org/misc/emacs_macos_emoji.html
-;;  ;;
 ;;  )
 
 ;; set font for chinese characters
@@ -170,9 +167,22 @@ Version 2019-11-05"
 ;;     ((member "Hei" (font-family-list)) "Hei")
 ;;     ((member "Heiti SC" (font-family-list)) "Heiti SC")
 ;;     ((member "Heiti TC" (font-family-list)) "Heiti TC")))
+;;     ))
 ;;   ((string-equal system-type "gnu/linux")
 ;;    (cond
 ;;     ((member "WenQuanYi Micro Hei" (font-family-list)) "WenQuanYi Micro Hei")))))
+
+(set-frame-font
+       (cond
+        ((string-equal system-type "windows-nt")
+         (if (member "Consolas" (font-family-list)) (format "Consolas-%s" 14) nil))
+        ((string-equal system-type "darwin")
+         (if (member "Monaco" (font-family-list)) (format "Monaco-%s" 13) nil))
+        ((string-equal system-type "gnu/linux")
+         (if (member "DejaVu Sans Mono" (font-family-list)) "DejaVu Sans Mono" nil))
+        (t nil)))
+
+
 
 ;; HHH___________________________________________________________________
 
@@ -298,8 +308,8 @@ Version 2019-02-22"
 (setq package-archives '(("gnu" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
                          ("melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")))
 
-;; (setq package-archives 
-;;  '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/") 
+;; (setq package-archives
+;;  '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
 ;;    ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
       ;; '(("melpa" . "https://gitlab.com/d12frosted/elpa-mirror/raw/master/melpa/")
       ;;   ("org"   . "https://gitlab.com/d12frosted/elpa-mirror/raw/master/org/")
@@ -393,9 +403,9 @@ Version 2017-11-10"
     (add-hook 'eww-after-render-hook 'xah-rename-eww-buffer))
 
 ;; load theme
-(use-package melancholy-theme
+(use-package seti-theme
   :ensure t)
-(load-theme 'melancholy t)
+(load-theme 'seti t)
 
 (setq inhibit-startup-screen t)
 ;; don't show menual-bar
@@ -459,7 +469,7 @@ Version 2019-11-05"
 
 ;; auto load function
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(require 'company) 
+(require 'company)
 (require 'company-sql)
 (add-hook 'after-init-hook 'global-company-mode)
 ;; (add-hook 'emacs-startup-hook 'persp-state-load)
@@ -473,17 +483,19 @@ Version 2019-11-05"
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("2f08b4f5ff619bdfa46037553ea41f72f09013a2e6b7287799db6cec6a7dddb2" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" default))
+   '("1f6039038366e50129643d6a0dc67d1c34c70cdbe998e8c30dc4c6889ea7e3db" "2f08b4f5ff619bdfa46037553ea41f72f09013a2e6b7287799db6cec6a7dddb2" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" default))
  '(eww-search-prefix "https://bing.com/search?q=")
  '(minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
  '(package-selected-packages
-   '(diminish lsp-ui melancholy-theme sublime-themes lsp-ivy lsp-mode zoom-window perspective yasnippet-classic-snippets evil-terminal-cursor-changer which-key command-log-mode use-package toml-mode sqlformat projectile markdown-mode ivy-rich evil counsel company-quickhelp company-anaconda color-theme amx))
+   '(seti-theme diminish lsp-ui melancholy-theme sublime-themes lsp-ivy lsp-mode zoom-window perspective yasnippet-classic-snippets evil-terminal-cursor-changer which-key command-log-mode use-package toml-mode sqlformat projectile markdown-mode ivy-rich evil counsel company-quickhelp company-anaconda color-theme amx))
+ '(warning-suppress-types '((perspective)))
  '(zoom-window-mode-line-color "black"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ '(default ((t (:background nil))))
+ '(font-lock-keyword-face ((t nil))))
 
    ;; '(sublime-themes lsp-ivy lsp-mode zoom-window perspective yasnippet-classic-snippets evil-terminal-cursor-changer which-key command-log-mode use-package toml-mode sqlformat projectile markdown-mode ivy-rich ivy-hydra evil counsel company-quickhelp company-anaconda color-theme amx))
