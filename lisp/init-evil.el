@@ -4,6 +4,9 @@
   "Keymap for \"leader key\" shortcuts.")
 
 ;; (require 'evil)
+(use-package evil-terminal-cursor-changer
+  :ensure t)
+
 (use-package evil :ensure t 
   :init 
   (setq evil-want-C-u-scroll t

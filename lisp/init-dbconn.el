@@ -51,8 +51,8 @@
         (test-pg (sql-product 'postgres)
                 (sql-port 5432)
                 (sql-server "localhost")
-                (sql-user "hebee")
-                (sql-database "postgres"))
+                (sql-user "emas_dev")
+                (sql-database "emas"))
         ))
 
 (setenv "PGPASSFILE" "/Users/HeBee/.pgpass")
@@ -82,10 +82,10 @@
 (defun my-sql-connect-server (func)
   "Connect to the input server using my-sql-servers-list"
   (interactive
-   (cdr(
-        assoc(
-              completing-read "SELECT server" my-sql-servers-list
-                              ) my-sql-servers-list)))
+   (cdr
+    (assoc
+     (completing-read "SELECT server" my-sql-servers-list) 
+     my-sql-servers-list)))
   (funcall func))
 
 (define-key my-leader-map (kbd "cc") 'my-sql-connect-server)
