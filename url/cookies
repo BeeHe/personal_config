@@ -1,16 +1,0 @@
-;; Emacs-W3 HTTP cookies file
-;; Automatically generated file!!! DO NOT EDIT!!!
-
-(setq url-cookie-storage
- '(("www.masteringemacs.org"
-  [url-cookie "me_o__lWB-s3qQSbCdysLBIDb5CQ" "1" "五  8 12 05:29:41 2022 GMT" "/" "www.masteringemacs.org" nil]))
-)
-(setq url-cookie-secure-storage
- '(("gitlab.com"
-  [url-cookie "experimentation_subject_id" "eyJfcmFpbHMiOnsibWVzc2FnZSI6IklqYzVNMlkxWkRNeExXUmpNall0TkRjMFpTMWhZMlEzTFdVME1UWXlaRFEyWlRka05DST0iLCJleHAiOm51bGwsInB1ciI6ImNvb2tpZS5leHBlcmltZW50YXRpb25fc3ViamVjdF9pZCJ9fQ%3D%3D--cf51756ba3b7be2046cea36676191229cbb11257" "Sat, 12 Jul 2042 09:30:59 GMT" "/" "gitlab.com" t]))
-)
-
-;; Local Variables:
-;; version-control: never
-;; no-byte-compile: t
-;; End:
