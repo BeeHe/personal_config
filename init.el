@@ -445,6 +445,7 @@ Version 2019-11-05"
 ;; ---------- mine ----------
 ;; fix projectile string-trim
 (require 'subr-x)
+;; (setq shell-command-switch "-ic")
 
 (eval-when-compile
  ;; Following line is not needed if use-package.el is in ~/.emacs.d
@@ -466,6 +467,7 @@ Version 2019-11-05"
 (load (xah-get-fullpath "lisp/init-ivy.el"))
 (load (xah-get-fullpath "lisp/init-magit.el"))
 (load (xah-get-fullpath "lisp/init-eww.el"))
+(load (xah-get-fullpath "lisp/init-docker.el"))
 
 ;; auto load function
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
@@ -475,8 +477,8 @@ Version 2019-11-05"
 ;; (add-hook 'emacs-startup-hook 'persp-state-load)
 
 (autoload 'sql-def-buffer-create-for-name-at-point "sql-def")
+;; (message (file-name-directory (or load-file-name buffer-file-name)))
 
-(message (file-name-directory (or load-file-name buffer-file-name)))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -487,7 +489,7 @@ Version 2019-11-05"
  '(eww-search-prefix "https://bing.com/search?q=")
  '(minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
  '(package-selected-packages
-   '(seti-theme diminish lsp-ui melancholy-theme sublime-themes lsp-ivy lsp-mode zoom-window perspective yasnippet-classic-snippets evil-terminal-cursor-changer which-key command-log-mode use-package toml-mode sqlformat projectile markdown-mode ivy-rich evil counsel company-quickhelp company-anaconda color-theme amx))
+   '(docker scala-mode json-mode flycheck pyenv-mode treemacs seti-theme diminish lsp-ui melancholy-theme sublime-themes lsp-ivy lsp-mode zoom-window perspective yasnippet-classic-snippets evil-terminal-cursor-changer which-key command-log-mode use-package toml-mode sqlformat projectile markdown-mode ivy-rich evil counsel company-quickhelp company-anaconda color-theme amx))
  '(warning-suppress-types '((perspective)))
  '(zoom-window-mode-line-color "black"))
 (custom-set-faces

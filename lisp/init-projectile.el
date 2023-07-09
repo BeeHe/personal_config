@@ -58,6 +58,12 @@
   (if (f-file-p persp-state-default-file) (persp-state-load persp-state-default-file)))
 (add-hook 'kill-emacs-hook 'my-persp-auto-save)
 (add-hook 'after-init-hook 'my-persp-auto-load)
+
+(use-package treemacs
+  :ensure t
+  :config
+  (define-key my-leader-map (kbd "t") 'treemacs))
+
 ;; (remove-hook 'kill-buffer-hook 'my-persp-auto-save)
 
 ;; (fset 'f2 (lambda () (persp-state-save persp-state-default-file)))
