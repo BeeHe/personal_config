@@ -1,6 +1,7 @@
 ;; emcas windows config
 (winner-mode 1)
 
+(global-key-binding (kbd "C-x o") 'ace-window)
 (define-prefix-command 'evil-window-map)
 (define-key my-leader-map (kbd "w" ) 'evil-window-map)
 (define-key evil-window-map "d" 'delete-window)

@@ -4,6 +4,9 @@
   "Keymap for \"leader key\" shortcuts.")
 
 ;; (require 'evil)
+(use-package evil-terminal-cursor-changer
+  :ensure t)
+
 (use-package evil :ensure t 
   :init 
   (setq evil-want-C-u-scroll t
@@ -33,6 +36,7 @@
   :config
   ;; basic settings
   (setq evil-ex-search-case 'smart)
+  (setq-default evil-symbol-word-search t)
 
   ;; (setq evil-emacs-state-cursor  '("gray" box))
   (setq evil-emacs-state-cursor  'hbar)
@@ -72,10 +76,11 @@
 
 ;; (hs-minor-mode)
 ;; (define-key my-leader-map (kbd "fd") hs-minor-mode-map)
-;; (define-key my-leader-map (kbd "fdha") 'hs-hide-all)
-;; (define-key my-leader-map (kbd "fdsa") 'hs-show-all)
-;; (define-key my-leader-map (kbd "fdsb") 'hs-show-block)
-;; (define-key my-leader-map (kbd "fdhb") 'hs-hide-block)
+(define-key my-leader-map (kbd "hha") 'hs-hide-all)
+(define-key my-leader-map (kbd "hsa") 'hs-show-all)
+(define-key my-leader-map (kbd "hsb") 'hs-show-block)
+(define-key my-leader-map (kbd "hhb") 'hs-hide-block)
+(define-key my-leader-map (kbd "ht") 'hs-toggle-hiding)
 
 (evil-mode 1)
 

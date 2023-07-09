@@ -3,7 +3,8 @@
     :mode ("\\.py\\'" . python-mode)
     :interpreter ("/Users/HeBee/.pyenv/shims/ipython" . python-mode)
     :config
-    (setq python-shell-interpreter "/Users/HeBee/.pyenv/shims/ipython")
+    (setq python-shell-interpreter "/Users/HeBee/.pyenv/shims/python")
+    (setq lsp-pylsp-server-command "/Users/HeBee/.pyenv/shims/pylsp")
     ;; :init 
     ;; (setq 
     ;;  python-shell-interpreter-args "--simple-prompt -i"
